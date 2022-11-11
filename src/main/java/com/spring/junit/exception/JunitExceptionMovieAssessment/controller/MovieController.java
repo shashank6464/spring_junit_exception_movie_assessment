@@ -72,7 +72,7 @@ public class MovieController {
 
         Movie movieRes = service.getMovieById(movie.getId());
         if(movieRes==null){
-            throw new MovieException("Movie DOESN'T EXISTS");
+            throw new MovieException("MOVIE DOESN'T EXISTS");
         }
 
         return service.updateMovie(movie);
