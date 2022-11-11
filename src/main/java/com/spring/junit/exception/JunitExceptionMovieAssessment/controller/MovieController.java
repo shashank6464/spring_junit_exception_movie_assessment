@@ -35,7 +35,7 @@ public class MovieController {
 
         Movie movie = service.getMovieById(id);
         if(movie==null || movie.getId()<=0){
-            throw new MovieException("EMPLOYEE DOESN'T EXISTS");
+            throw new MovieException("MOVIE DOESN'T EXISTS");
         }
 
         return new ResponseEntity<Movie>(service.getMovieById(id), HttpStatus.OK);
@@ -64,8 +64,20 @@ public class MovieController {
         }
 
         service.removeMovie(id);
-        return new ResponseEntity<Response>(new Response(HttpStatus.OK.value(), "SUCCESSFULLY DELETED Movie"), HttpStatus.OK);
+        return new ResponseEntity<Response>(new Response(HttpStatus.OK.value(), "SUCCESSFULLY DELETED MOVIE"), HttpStatus.OK);
     }
+
+    @RequestMapping(value = "/update-movie", method = RequestMethod.PATCH)
+    public Movie updateMovie(@RequestBody Movie movie) throws MovieException{
+
+        Movie movieRes = service.getMovieById(movie.getId());
+        if(movieRes==null){
+            throw new MovieException("Movie DOESN'T EXISTS");
+        }
+
+        return service.updateMovie(movie);
+    }
+
 
 
 

@@ -45,4 +45,10 @@ public class MovieServiceImpl implements  MovieService{
 //        return "Employee NOT FOUND";
         repository.deleteById(id);
     }
+
+    public Movie updateMovie(Movie movie){
+        return repository.save(movie);
+//        return "Movie updated successfully";
+    }
+
 }

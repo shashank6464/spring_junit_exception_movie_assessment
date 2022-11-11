@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 @ControllerAdvice
 public class RestExceptionHandler {
 
+    //not found exception
     @ExceptionHandler(MovieException.class)
     public ResponseEntity<ErrorResponse> exceptionMovieHandler(Exception e){
 
@@ -18,6 +19,7 @@ public class RestExceptionHandler {
         return new ResponseEntity<ErrorResponse>(errorResponse, HttpStatus.NOT_FOUND);
     }
 
+    //bad request exception
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorResponse> exceptionHandler(Exception e){
 

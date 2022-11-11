@@ -41,7 +41,6 @@ public class MovieControllerTest {
 
     // THESE test cases check the payload details after the controller URI is called;
 
-
     @Test
     public void verifyAllMovies() throws Exception {
 
@@ -53,7 +52,7 @@ public class MovieControllerTest {
 
 
     @Test
-    public void verifyGetById() throws Exception {
+    public void verifyGetMovieById() throws Exception {
 
         mockMvc.perform(MockMvcRequestBuilders.get("/movie/get-movie-by-id/2")
                         .accept(MediaType.APPLICATION_JSON))
@@ -88,16 +87,6 @@ public class MovieControllerTest {
                 .andExpect(jsonPath("$.message").value("MOVIE DOESN'T EXISTS"))
                 .andDo(print());
     }
-
-
-
-
-
-
-
-
-
-
 
 
 
