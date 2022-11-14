@@ -8,14 +8,20 @@ public interface MovieService {
 
     List<Movie> getMovies();
 
+
     Movie getMovieById(Long id);
+
 
     Movie saveMovie(Movie movie);
 
+
     List<Movie> saveAllMovies(List<Movie> movies);
+
 
     void removeMovie(Long id);
 
+
     Movie updateMovie(Movie movie);
+
 
 }
